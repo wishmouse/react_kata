@@ -96,40 +96,15 @@ test('<StylinButton />', t => {
   const wrapper = render(React.createElement(StylinButton, props))
 
   // assert
-  t.ok(wrapper.text().indexOf('button')
-  t.ok(wrapper.text().indexOf('background-color')
-  t.ok(wrapper.text().indexOf('red')
-  t.ok(wrapper.text().indexOf('border-radius')
+  t.ok(wrapper.html().indexOf('button')
+  t.ok(wrapper.html().indexOf('background-color')
+  t.ok(wrapper.html().indexOf('red')
+  t.ok(wrapper.html().indexOf('border-radius')
        
   
   
   t.same(button.length, 1)
 })
-
-// conditional display
-test('<ShowAndHider />', t => {
-  t.plan(5)
-
-  // arrange
-  const props1 = { displayOptions: true, options: [ 'yes', 'no', 'maybe' ] }
-  const props2 = { displayOptions: false, options: [ 'yes', 'no', 'maybe' ] }
-
-  // action
-  const wrapper1 = shallow(React.createElement(ShowAndHider, props1))
-  const wrapper2 = shallow(React.createElement(ShowAndHider, props2))
-
-  const div1 = wrapper1.find('ul').parent()
-  const listItems1 = wrapper1.find('ul').find('li')
-  const listItems2 = wrapper2.find('ul').find('li')
-
-  // assert
-  t.ok(div1.is('div'))
-  listItems1.forEach((li, i) => {
-    t.same(li.text(), props1.options[i])
-  })
-  t.same(listItems2.length, 0)
-})
-
 
 // mapped props
 test('<BestList />', t = > {
@@ -159,7 +134,72 @@ test('<BestList />', t = > {
   t.same(wrapperWithNoProps.find('li').length, 0) 
 })
 
+
+// conditional display
+test('<ShowAndHider />', t => {
+  t.plan(5)
+
+  // arrange
+  const props1 = { displayOptions: true, options: [ 'yes', 'no', 'maybe' ] }
+  const props2 = { displayOptions: false, options: [ 'yes', 'no', 'maybe' ] }
+
+  // action
+  const wrapper1 = shallow(React.createElement(ShowAndHider, props1))
+  const wrapper2 = shallow(React.createElement(ShowAndHider, props2))
+
+  const div1 = wrapper1.find('ul').parent()
+  const listItems1 = wrapper1.find('ul').find('li')
+  const listItems2 = wrapper2.find('ul').find('li')
+
+  // assert
+  t.ok(div1.is('div'))
+  listItems1.forEach((li, i) => {
+    t.same(li.text(), props1.options[i])
+  })
+  t.same(listItems2.length, 0)
+})
+
+
+
 // filtered props, reuse
+test('<SpecialFilter />', t => {
+  t.plan(6)
+
+  // arrange
+  const items = [
+    { type: 'cat', name: 'tiger' },
+    { type: 'dog', name: 'daschund' },
+    { type: 'cat', name: 'panther' },
+    { type: 'dog', name: 'labrador' },
+    { type: 'cat', name: 'grumpy cat' }
+  ]
+  const props = {
+    filter: 'cat',
+    items: items
+  }
+
+  const dogProps = {
+    filter: 'dog',
+    items: items 
+  }
+
+  // action 
+  const wrapper = mount(React.createElement(SpecialFilter, props))
+  const dogWrapper = mount(React.createElement(SpecialFilter, dogProps))
+  const listItems = wrapper.find('li')
+
+  // assert
+  t.ok(wrapper.contains(React.createElement(BestList)))
+
+  t.same(listItems.length, 3)
+  listItems.forEach((li, i) => {
+    t.same(li.text(), items[i].name)
+  })
+  
+  t.same(dogWrapper.find('li').length, 2)
+})
+
+
 // array to table (data mainpulation)
 // calls props callback
 // updates component state

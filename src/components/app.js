@@ -20,6 +20,13 @@ module.exports = React.createClass({
         { text: 'Athos' },
         { text: 'Portos' },
         { text: 'Aramis' }
+      ],
+      animals: [
+        { type: 'cat', name: 'tiger' },
+        { type: 'dog', name: 'daschund' },
+        { type: 'cat', name: 'panther' },
+        { type: 'dog', name: 'labrador' },
+        { type: 'cat', name: 'grumpy cat' }
       ]
     }
   },
@@ -31,8 +38,9 @@ module.exports = React.createClass({
         <BetterHeader title={this.state.title} />
         <FormTextArea formClasses={this.state.formClasses} buttonClasses={this.state.buttonClasses} />
         <StylinButton style={this.state.buttonStyle} />
-        <ShowAndHider display={true} options={this.state.options} />
+        <ShowAndHider displayOptions={true} options={this.state.options} />
         <BestList items={this.state.musketeers} />  
+        <SpecialFilter filter="cat" items={this.state.animals} />
       </div>
     )
   }
