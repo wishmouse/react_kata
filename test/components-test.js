@@ -43,7 +43,7 @@ test('<BetterHeader />', t => {
 
 // classes, children
 test('<FormTextArea />', t => {
-  t.plan(9)
+  t.plan(10)
 
   // arrange
   const props = { formClasses: [ 'textarea-form', 'form' ], buttonClasses: [ 'big', 'button' ] }
@@ -52,9 +52,15 @@ test('<FormTextArea />', t => {
     buttonClasses: [ 'button', 'small' ] 
   }
 
+  const evenMoreProps = {
+    formClasses: [ 'textarea-form', 'special-form' ],
+    buttonClasses: [ 'button', 'small', 'warning' ] 
+  }
+
   //action
   const wrapper = shallow(React.createElement(FormTextArea, props))
   const otherWrapper = shallow(React.createElement(FormTextArea, otherProps))
+  const trickyWrapper = shallow(React.createElement(FormTextArea, evenMoreProps))
 
   // assert
   let form = wrapper.find('form')
@@ -72,8 +78,10 @@ test('<FormTextArea />', t => {
 
   // have you cheated? let's find out...
   let catchHardCoders = otherWrapper.find('.big.button')
-  
+  let haveYouIteratedTheClasses = trickyWrapper.find('.small.button.warning')
+
   t.same(catchHardCoders.length, 0)
+  t.same(haveYouIteratedTheClasses.length, 1)
   t.same(otherWrapper.find('input[type="text"]').length, 0)
 })
 
@@ -85,10 +93,16 @@ test('<StylinButton />', t => {
   const props = { style: { backgroundColor: 'red', borderRadius: '5px' } }
 
   // action
-  const wrapper = shallow(React.createElement(StylinButton, props))
+  const wrapper = render(React.createElement(StylinButton, props))
 
   // assert
-  let button = wrapper.find('button[style="backgroud-color:red;border-radius:5px"]') // may not work!?
+  t.ok(wrapper.text().indexOf('button')
+  t.ok(wrapper.text().indexOf('background-color')
+  t.ok(wrapper.text().indexOf('red')
+  t.ok(wrapper.text().indexOf('border-radius')
+       
+  
+  
   t.same(button.length, 1)
 })
 
