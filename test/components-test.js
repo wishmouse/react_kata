@@ -9,7 +9,7 @@ import BetterHeader from '../src/components/better-header'
 import FormTextArea from '../src/components/form-text-area'
 import StylinButton from '../src/components/stylin-button'
 import ShowAndHider from '../src/components/show-and-hider'
-
+import BestList from '../src/components/best-list'
 
 // static content
 test('<Header />', t => {
@@ -105,7 +105,35 @@ test('<ShowAndHider />', t => {
   t.same(listItems2.length, 0)
 })
 
+
 // mapped props
+test('<BestList />', t = > {
+  t.plan(6)
+
+  // arrange
+  const props = { 
+    items: [
+      { text: 'Athos' },
+      { text: 'Portos' },
+      { text: 'Aramis' }
+    ]
+  }
+
+  // action 
+  const wrapper = shallow(React.createElement(BestList, props))
+  const wrapperWithNoProps = shallow(React.createElement(BestList))
+
+  // assert
+  t.same(wrapper.find('ul').length, 1)
+  t.same(wrapper.find('li').length, 3)
+
+  wrapper.find('li').forEach((li, i) => {
+    t.same(li.text(), props.items[i].text)
+  })
+
+  t.same(wrapperWithNoProps.find('li').length, 0) 
+})
+
 // filtered props
 // array to table (data mainpulation)
 // calls props callback

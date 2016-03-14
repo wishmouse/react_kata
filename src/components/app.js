@@ -5,6 +5,7 @@ import BetterHeader from './better-header'
 import FormTextArea from './form-text-area'
 import StylinButton from './stylin-button'
 import ShowAndHider from './show-and-hider'
+import BestList from './best-list'
 
 module.exports = React.createClass({
 
@@ -15,6 +16,11 @@ module.exports = React.createClass({
       buttonClasses: [ 'big', 'button' ],
       buttonStyle:  { backgroundColor: 'red', borderRadius: '5px' },
       options: [ 'yes', 'no', 'maybe' ]
+      musketeers: [
+        { text: 'Athos' },
+        { text: 'Portos' },
+        { text: 'Aramis' }
+      ]
     }
   },
 
@@ -26,6 +32,7 @@ module.exports = React.createClass({
         <FormTextArea formClasses={this.state.formClasses} buttonClasses={this.state.buttonClasses} />
         <StylinButton style={this.state.buttonStyle} />
         <ShowAndHider display={true} options={this.state.options} />
+        <BestList items={this.state.musketeers} />  
       </div>
     )
   }
