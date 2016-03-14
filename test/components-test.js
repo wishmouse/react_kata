@@ -43,13 +43,18 @@ test('<BetterHeader />', t => {
 
 // classes, children
 test('<FormTextArea />', t => {
-  t.plan(7)
+  t.plan(9)
 
   // arrange
   const props = { formClasses: [ 'textarea-form', 'form' ], buttonClasses: [ 'big', 'button' ] }
+  const otherProps = {
+    formClasses: [ 'textarea-form', 'special-form' ],
+    buttonClasses: [ 'button', 'small' ] 
+  }
 
   //action
   const wrapper = shallow(React.createElement(FormTextArea, props))
+  const otherWrapper = shallow(React.createElement(FormTextArea, otherProps))
 
   // assert
   let form = wrapper.find('form')
@@ -60,10 +65,16 @@ test('<FormTextArea />', t => {
   t.same(button.length, 1)
   t.same(textArea.length, 1)
 
-  t.ok(wrapper.hasClass(props.formClasses[0]))
-  t.ok(wrapper.hasClass(props.formClasses[1]))
+  t.ok(form.hasClass(props.formClasses[0]))
+  t.ok(form.hasClass(props.formClasses[1]))
   t.ok(button.hasClass(props.buttonClasses[0]))
   t.ok(button.hasClass(props.buttonClasses[1]))
+
+  // have you cheated? let's find out...
+  let catchHardCoders = otherWrapper.find('.big.button')
+  
+  t.same(catchHardCoders.length, 0)
+  t.same(otherWrapper.find('input[type="text"]').length, 0)
 })
 
 // inline styles
@@ -134,7 +145,7 @@ test('<BestList />', t = > {
   t.same(wrapperWithNoProps.find('li').length, 0) 
 })
 
-// filtered props
+// filtered props, reuse
 // array to table (data mainpulation)
 // calls props callback
 // updates component state
