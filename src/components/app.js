@@ -6,6 +6,8 @@ import FormTextArea from './form-text-area'
 import StylinButton from './stylin-button'
 import ShowAndHider from './show-and-hider'
 import BestList from './best-list'
+import SpecialFilter from './special-filter'
+
 
 module.exports = React.createClass({
 
@@ -15,7 +17,7 @@ module.exports = React.createClass({
       formClasses: [ 'textarea-form', 'form' ], 
       buttonClasses: [ 'big', 'button' ],
       buttonStyle:  { backgroundColor: 'red', borderRadius: '5px' },
-      options: [ 'yes', 'no', 'maybe' ]
+      options: [ 'yes', 'no', 'maybe' ],
       musketeers: [
         { text: 'Athos' },
         { text: 'Portos' },
