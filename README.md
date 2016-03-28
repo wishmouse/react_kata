@@ -1,5 +1,4 @@
-# react-kata
-
+# React Kata
 
 ## Patience grasshopper
 
