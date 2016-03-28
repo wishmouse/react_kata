@@ -96,10 +96,10 @@ test('<StylinButton />', t => {
   const wrapper = render(React.createElement(StylinButton, props))
 
   // assert
-  t.ok(wrapper.html().indexOf('button')
-  t.ok(wrapper.html().indexOf('background-color')
-  t.ok(wrapper.html().indexOf('red')
-  t.ok(wrapper.html().indexOf('border-radius')
+  t.ok(wrapper.html().indexOf('button'))
+  t.ok(wrapper.html().indexOf('background-color'))
+  t.ok(wrapper.html().indexOf('red'))
+  t.ok(wrapper.html().indexOf('border-radius'))
        
   
   
@@ -107,7 +107,7 @@ test('<StylinButton />', t => {
 })
 
 // mapped props
-test('<BestList />', t = > {
+test('<BestList />', t => {
   t.plan(6)
 
   // arrange
