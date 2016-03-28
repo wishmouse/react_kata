@@ -13,7 +13,6 @@ import BestList from '../src/components/best-list'
 
 // static content
 test('<Header />', t => {
-  t.plan(1)
   // arrange
   const expected = 'My Best App'
 
@@ -27,7 +26,6 @@ test('<Header />', t => {
 
 // props to textContent
 test('<BetterHeader />', t => {
-  t.plan(2)
   // arrange
   const props = { title: 'My Better App' }
 
@@ -95,7 +93,6 @@ test('FormTextArea /> renders classes from props: 2', t => {
 
 // inline styles
 test('<StylinButton />', t => {
-  t.plan(1)
 
   // arrange
   const props = { style: { backgroundColor: 'red', borderRadius: '5px' } }
@@ -104,19 +101,15 @@ test('<StylinButton />', t => {
   const wrapper = render(React.createElement(StylinButton, props))
 
   // assert
-  t.ok(wrapper.html().indexOf('button'))
-  t.ok(wrapper.html().indexOf('background-color'))
-  t.ok(wrapper.html().indexOf('red'))
-  t.ok(wrapper.html().indexOf('border-radius'))
+  t.ok(wrapper.html().indexOf('button') > 1)
+  t.ok(wrapper.html().indexOf('background-color') > 1)
+  t.ok(wrapper.html().indexOf('red') > 1)
+  t.ok(wrapper.html().indexOf('border-radius') > 1)
        
-  
-  
-  t.same(button.length, 1)
 })
 
 // mapped props
 test('<BestList />', t => {
-  t.plan(6)
 
   // arrange
   const props = { 
@@ -145,7 +138,6 @@ test('<BestList />', t => {
 
 // conditional display
 test('<ShowAndHider />', t => {
-  t.plan(5)
 
   // arrange
   const props1 = { displayOptions: true, options: [ 'yes', 'no', 'maybe' ] }
@@ -171,7 +163,6 @@ test('<ShowAndHider />', t => {
 
 // filtered props, reuse
 test('<SpecialFilter />', t => {
-  t.plan(6)
 
   // arrange
   const items = [
