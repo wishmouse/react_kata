@@ -36,7 +36,7 @@ The tests should be attempted in the following order.
 6. Style and button - Render inline styles.  
 7. Special filter - Map through props and conditionally display content.  
 
-## Addendum: React styles
+## Addendum: Different styles of React
 
 You will encounter react code written in a number of different ways. Take a look at `src/components/table-4-ways.js` to see the same component written in 4 different styles. Try importing the component into app.js and passing props into it.  
 
