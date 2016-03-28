@@ -18,12 +18,12 @@ Study the structure of the react components in this repo. See if you can underst
 ```npm run dev``` and load localhost:8080
 
 Your job is to pass the tests we have provided. 
-1. Header - Render static markup.
-2. Better header - Render text using props.
-3. Best list - Map through props to generate dynamic html.
-4. Form text area - Pass classes down as props.
-5. Show and hider - Conditionally display content.
-6. Style and button - Render inline styles.
-7. Special filter - Map through props and conditionally display content.
+1. Header - Render static markup.  
+2. Better header - Render text using props.  
+3. Best list - Map through props to generate dynamic html.  
+4. Form text area - Pass classes down as props.  
+5. Show and hider - Conditionally display content.  
+6. Style and button - Render inline styles.  
+7. Special filter - Map through props and conditionally display content.  
 
 
