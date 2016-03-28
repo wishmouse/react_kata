@@ -41,26 +41,15 @@ test('<BetterHeader />', t => {
 
 })
 
+
 // classes, children
-test('<FormTextArea />', t => {
-  t.plan(10)
+test('<FormTextArea /> renders a form with an input and button', t => {
 
   // arrange
   const props = { formClasses: [ 'textarea-form', 'form' ], buttonClasses: [ 'big', 'button' ] }
-  const otherProps = {
-    formClasses: [ 'textarea-form', 'special-form' ],
-    buttonClasses: [ 'button', 'small' ] 
-  }
-
-  const evenMoreProps = {
-    formClasses: [ 'textarea-form', 'special-form' ],
-    buttonClasses: [ 'button', 'small', 'warning' ] 
-  }
 
   //action
   const wrapper = shallow(React.createElement(FormTextArea, props))
-  const otherWrapper = shallow(React.createElement(FormTextArea, otherProps))
-  const trickyWrapper = shallow(React.createElement(FormTextArea, evenMoreProps))
 
   // assert
   let form = wrapper.find('form')
@@ -75,14 +64,33 @@ test('<FormTextArea />', t => {
   t.ok(form.hasClass(props.formClasses[1]))
   t.ok(button.hasClass(props.buttonClasses[0]))
   t.ok(button.hasClass(props.buttonClasses[1]))
+})
 
-  // have you cheated? let's find out...
-  let catchHardCoders = otherWrapper.find('.big.button')
-  let haveYouIteratedTheClasses = trickyWrapper.find('.small.button.warning')
+test('FormTextArea /> renders classes from props', t => {
+  // arrange
+  const props = {
+    formClasses: [ 'textarea-form', 'special-form' ],
+    buttonClasses: [ 'button', 'small' ] 
+  }
+  
+  // action
+  const wrapper = shallow(React.createElement(FormTextArea, props))
 
+  // assert
+  let catchHardCoders = wrapper.find('.big.button')
   t.same(catchHardCoders.length, 0)
-  t.same(haveYouIteratedTheClasses.length, 1)
-  t.same(otherWrapper.find('input[type="text"]').length, 0)
+})
+
+test('FormTextArea /> renders classes from props: 2', t => {
+  const props = {
+    formClasses: [ 'textarea-form', 'special-form' ],
+    buttonClasses: [ 'button', 'small', 'warning' ] 
+  }
+
+  const wrapper = shallow(React.createElement(FormTextArea, props))
+  
+  let haveYouSetTheClassesFromProps = wrapper.find('.small.button.warning')
+  t.same(haveYouSetTheClassesFromProps.length, 1)
 })
 
 // inline styles
@@ -96,10 +104,10 @@ test('<StylinButton />', t => {
   const wrapper = render(React.createElement(StylinButton, props))
 
   // assert
-  t.ok(wrapper.html().indexOf('button')
-  t.ok(wrapper.html().indexOf('background-color')
-  t.ok(wrapper.html().indexOf('red')
-  t.ok(wrapper.html().indexOf('border-radius')
+  t.ok(wrapper.html().indexOf('button'))
+  t.ok(wrapper.html().indexOf('background-color'))
+  t.ok(wrapper.html().indexOf('red'))
+  t.ok(wrapper.html().indexOf('border-radius'))
        
   
   
@@ -107,7 +115,7 @@ test('<StylinButton />', t => {
 })
 
 // mapped props
-test('<BestList />', t = > {
+test('<BestList />', t => {
   t.plan(6)
 
   // arrange
@@ -199,7 +207,6 @@ test('<SpecialFilter />', t => {
   t.same(dogWrapper.find('li').length, 2)
 })
 
-
-// array to table (data mainpulation)
+// NOTES
 // calls props callback
 // updates component state
