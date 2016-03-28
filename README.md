@@ -6,7 +6,7 @@
 Clone down the repo and run ```npm i``` first because it takes a long time to install.
 
 ## Wax on, Wax off
-Read the [thinking in react tutorial](https://facebook.github.io/react/docs/thinking-in-react.html)  
+Read [thinking in react](https://facebook.github.io/react/docs/thinking-in-react.html)  
 Do the [react tutorial](https://facebook.github.io/react/docs/tutorial.html)
 
 ## Paint house
