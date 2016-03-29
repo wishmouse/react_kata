@@ -6,9 +6,7 @@ import BestList from './best-list' // <- a clue!!
 module.exports = React.createClass({
   render: function () {
     return (
-      <div>
-        <BestList />
-      </div>
+         <BestList />
     )
   }
 

@@ -10,6 +10,7 @@ import FormTextArea from '../src/components/form-text-area'
 import StylinButton from '../src/components/stylin-button'
 import ShowAndHider from '../src/components/show-and-hider'
 import BestList from '../src/components/best-list'
+import SpecialFilter from '../src/components/special-filter'
 
 // static content
 test('<Header />', t => {
@@ -172,6 +173,9 @@ test('<SpecialFilter />', t => {
     { type: 'dog', name: 'labrador' },
     { type: 'cat', name: 'grumpy cat' }
   ]
+  const cats = items.filter(function(item) {
+   return item.type === 'cat' 
+  })
   const props = {
     filter: 'cat',
     items: items
@@ -192,7 +196,7 @@ test('<SpecialFilter />', t => {
 
   t.same(listItems.length, 3)
   listItems.forEach((li, i) => {
-    t.same(li.text(), items[i].name)
+    t.same(li.text(), cats[i].name)
   })
   
   t.same(dogWrapper.find('li').length, 2)
