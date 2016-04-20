@@ -3,17 +3,28 @@
 ## Patience grasshopper
 
 Clone down the repo and run ```npm i``` first because it takes a long time to install.
-make sure you have the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) installed.
+make sure you have the React Developer Tools ([chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) | [firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)) installed.
 
 ## Wax on, Wax off
-Read [thinking in react](https://facebook.github.io/react/docs/thinking-in-react.html)  
-Do the [react tutorial](https://facebook.github.io/react/docs/tutorial.html)
+
+- Watch this sweet video by Raquel if you haven't already: https://egghead.io/lessons/react-core-concepts-of-react-components-props-and-state
+- Start a project in a new folder, use this generator to get a starting setup : https://www.npmjs.com/package/slush-pages-react
+- Read the package.json and see what the generator made. Anything new?
+- Recreate Raquel's setup and extend it a little
+  - see if you can nest a component inside another component
+
+
+## Don't know. First time you, first time me
+
+- Read [thinking in react](https://facebook.github.io/react/docs/thinking-in-react.html)  
+- Do the [react tutorial](https://facebook.github.io/react/docs/tutorial.html)
+
 
 ## Paint house
 
-Study the structure of the react components in this repo. See if you can understand what html should be generated. 
+Study the structure of the react components in this repo.
+See if you can understand what html should be generated. 
 
- 
 
 ## Go, find balance
 
@@ -35,6 +46,7 @@ The tests should be attempted in the following order.
 5. Show and hider - Conditionally display content.  
 6. Style and button - Render inline styles.  
 7. Special filter - Map through props and conditionally display content.  
+
 
 ## Addendum: Different styles of React
 
