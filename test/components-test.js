@@ -30,10 +30,10 @@ test('<BetterHeader />', t => {
   // arrange
   const props = { title: 'My Better App' }
 
-  // action 
+  // action
   const wrapper = shallow(React.createElement(BetterHeader, props))
   // <BetterHeader title="My Better App" />
-  
+
   // assert
   t.same(wrapper.find('h1').length, 1)
   t.same(wrapper.text(), props.title)
@@ -54,7 +54,7 @@ test('<FormTextArea /> renders a form with an input and button', t => {
   let form = wrapper.find('form')
   let button = wrapper.children().find('.big.button')
   let textArea = wrapper.children().find('input[type="textarea"]')
-  
+
   t.same(form.length, 1)
   t.same(button.length, 1)
   t.same(textArea.length, 1)
@@ -69,9 +69,9 @@ test('FormTextArea /> renders classes from props', t => {
   // arrange
   const props = {
     formClasses: [ 'textarea-form', 'special-form' ],
-    buttonClasses: [ 'button', 'small' ] 
+    buttonClasses: [ 'button', 'small' ]
   }
-  
+
   // action
   const wrapper = shallow(React.createElement(FormTextArea, props))
 
@@ -83,11 +83,11 @@ test('FormTextArea /> renders classes from props', t => {
 test('FormTextArea /> renders classes from props: 2', t => {
   const props = {
     formClasses: [ 'textarea-form', 'special-form' ],
-    buttonClasses: [ 'button', 'small', 'warning' ] 
+    buttonClasses: [ 'button', 'small', 'warning' ]
   }
 
   const wrapper = shallow(React.createElement(FormTextArea, props))
-  
+
   let haveYouSetTheClassesFromProps = wrapper.find('.small.button.warning')
   t.same(haveYouSetTheClassesFromProps.length, 1)
 })
@@ -106,14 +106,15 @@ test('<StylinButton />', t => {
   t.ok(wrapper.html().indexOf('background-color') > 1)
   t.ok(wrapper.html().indexOf('red') > 1)
   t.ok(wrapper.html().indexOf('border-radius') > 1)
-       
+
+
 })
 
 // mapped props
 test('<BestList />', t => {
 
   // arrange
-  const props = { 
+  const props = {
     items: [
       { text: 'Athos' },
       { text: 'Portos' },
@@ -121,7 +122,7 @@ test('<BestList />', t => {
     ]
   }
 
-  // action 
+  // action
   const wrapper = shallow(React.createElement(BestList, props))
   const wrapperWithNoProps = shallow(React.createElement(BestList))
 
@@ -133,7 +134,7 @@ test('<BestList />', t => {
     t.same(li.text(), props.items[i].text)
   })
 
-  t.same(wrapperWithNoProps.find('li').length, 0) 
+  t.same(wrapperWithNoProps.find('li').length, 0)
 })
 
 
@@ -174,7 +175,7 @@ test('<SpecialFilter />', t => {
     { type: 'cat', name: 'grumpy cat' }
   ]
   const cats = items.filter(function(item) {
-   return item.type === 'cat' 
+   return item.type === 'cat'
   })
   const props = {
     filter: 'cat',
@@ -183,10 +184,10 @@ test('<SpecialFilter />', t => {
 
   const dogProps = {
     filter: 'dog',
-    items: items 
+    items: items
   }
 
-  // action 
+  // action
   const wrapper = mount(React.createElement(SpecialFilter, props))
   const dogWrapper = mount(React.createElement(SpecialFilter, dogProps))
   const listItems = wrapper.find('li')
@@ -198,7 +199,7 @@ test('<SpecialFilter />', t => {
   listItems.forEach((li, i) => {
     t.same(li.text(), cats[i].name)
   })
-  
+
   t.same(dogWrapper.find('li').length, 2)
 })
 
