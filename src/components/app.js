@@ -14,13 +14,13 @@ module.exports = React.createClass({
   getInitialState: function () {
     return {
       title:  'My Better App',
-      formClasses: [ 'textarea-form', 'form' ], 
+      formClasses: [ 'textarea-form', 'form' ],
       buttonClasses: [ 'big', 'button' ],
       buttonStyle:  { backgroundColor: 'red', borderRadius: '5px' },
       options: [ 'yes', 'no', 'maybe' ],
       musketeers: [
         { text: 'Athos' },
-        { text: 'Portos' },
+        { text: 'Porthos' },
         { text: 'Aramis' }
       ],
       animals: [
@@ -41,7 +41,7 @@ module.exports = React.createClass({
         <FormTextArea formClasses={this.state.formClasses} buttonClasses={this.state.buttonClasses} />
         <StylinButton style={this.state.buttonStyle} />
         <ShowAndHider displayOptions={true} options={this.state.options} />
-        <BestList items={this.state.musketeers} />  
+        <BestList items={this.state.musketeers} />
         <SpecialFilter filter="cat" items={this.state.animals} />
       </div>
     )

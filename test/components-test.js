@@ -117,10 +117,11 @@ test('<BestList />', t => {
   const props = {
     items: [
       { text: 'Athos' },
-      { text: 'Portos' },
+      { text: 'Porthos' },
       { text: 'Aramis' }
     ]
   }
+console.log("props.items:", props.items)
 
   // action
   const wrapper = shallow(React.createElement(BestList, props))
