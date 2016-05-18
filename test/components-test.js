@@ -121,7 +121,6 @@ test('<BestList />', t => {
       { text: 'Aramis' }
     ]
   }
-console.log("props.items:", props.items)
 
   // action
   const wrapper = shallow(React.createElement(BestList, props))
@@ -143,7 +142,10 @@ console.log("props.items:", props.items)
 test('<ShowAndHider />', t => {
 
   // arrange
-  const props1 = { displayOptions: true, options: [ 'yes', 'no', 'maybe' ] }
+  const props1 = {
+                    displayOptions: true,
+                    options: [ 'yes', 'no', 'maybe' ]
+                  }
   const props2 = { displayOptions: false, options: [ 'yes', 'no', 'maybe' ] }
 
   // action
@@ -156,10 +158,11 @@ test('<ShowAndHider />', t => {
 
   // assert
   t.ok(div1.is('div'))
-  listItems1.forEach((li, i) => {
-    t.same(li.text(), props1.options[i])
+
+  listItems1.forEach((li, i) => {t.same(li.text(), props1.options[i])
   })
   t.same(listItems2.length, 0)
+
 })
 
 
